@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>НАЖМИ ЭТУ КНОПКУ!</title>
+    <title>xX_НАЖМИ_ЭТУ_КНОПКУ_360_NOSCOPE_Xx</title>
     <style>
+        /* MLG CURSOR */
         body {
             margin: 0;
             padding: 0;
@@ -12,28 +13,58 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #00ffff);
-            background-size: 400% 400%;
-            animation: mlgBackground 10s ease infinite;
-            font-family: 'Comic Sans MS', cursive;
+            background: url('https://i.imgur.com/rHJ0CHE.png'), linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff, #ffff00, #00ffff);
+            background-size: 200px, 400% 400%;
+            background-blend-mode: overlay;
+            animation: mlgBackground 2s infinite linear;
+            font-family: 'Comic Sans MS', 'Impact', cursive;
             text-align: center;
             overflow: hidden;
+            cursor: crosshair; /* Снайперский прицел */
         }
 
+        /* ЭПИЛЕПТИЧЕСКИЙ ФОН */
         @keyframes mlgBackground {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% { background-position: 0 0, 0% 50%; filter: hue-rotate(0deg); }
+            50% { background-position: 100px 100px, 100% 50%; filter: hue-rotate(180deg); }
+            100% { background-position: 200px 200px, 0% 50%; filter: hue-rotate(360deg); }
+        }
+
+        /* ТРЯСКА ЭКРАНА (АКТИВИРУЕТСЯ ПРИ КЛИКЕ) */
+        .mlg-shake {
+            animation: shake 0.1s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(3px, 2px) rotate(0deg); }
+            10% { transform: translate(-3px, -2px) rotate(-2deg); }
+            20% { transform: translate(-4px, 0px) rotate(2deg); }
+            30% { transform: translate(0px, 3px) rotate(0deg); }
+            40% { transform: translate(3px, -2px) rotate(2deg); }
+            50% { transform: translate(-3px, 3px) rotate(-2deg); }
+            60% { transform: translate(4px, 2px) rotate(0deg); }
+            70% { transform: translate(-2px, -3px) rotate(-2deg); }
+            80% { transform: translate(2px, 3px) rotate(2deg); }
+            90% { transform: translate(-4px, -2px) rotate(0deg); }
+            100% { transform: translate(3px, -3px) rotate(-2deg); }
         }
 
         h1 {
-            color: #fff;
-            text-shadow: 3px 3px 0 #ff0000;
-            font-size: 2.5em;
+            color: #00ff00;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0 #ff0000, -4px -4px 0 #0000ff;
+            font-size: 3em;
             margin: 20px;
-            animation: bounce 0.5s infinite alternate;
+            animation: bounce 0.1s infinite alternate, rgbText 2s infinite;
             position: relative;
-            z-index: 2;
+            z-index: 10;
+        }
+
+        @keyframes rgbText {
+            0% { color: #00ff00; }
+            33% { color: #ff00ff; }
+            66% { color: #00ffff; }
+            100% { color: #00ff00; }
         }
 
         .glitch {
@@ -41,8 +72,8 @@
             display: inline-block;
         }
 
-        .glitch:hover::before,
-        .glitch:hover::after {
+        .glitch::before,
+        .glitch::after {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -52,26 +83,27 @@
             background: transparent;
             color: #fff;
             overflow: hidden;
+            pointer-events: none;
         }
 
-        .glitch:hover::before {
-            left: 2px;
-            text-shadow: -2px 0 #ff00ff;
-            animation: glitch-anim 0.3s infinite linear;
+        .glitch::before {
+            left: 4px;
+            text-shadow: -3px 0 #ff00ff;
+            animation: glitch-anim 0.2s infinite linear;
         }
 
-        .glitch:hover::after {
-            left: -2px;
-            text-shadow: 2px 0 #00ffff;
-            animation: glitch-anim 0.3s infinite linear reverse;
+        .glitch::after {
+            left: -4px;
+            text-shadow: 3px 0 #00ffff;
+            animation: glitch-anim 0.2s infinite linear reverse;
         }
 
         @keyframes glitch-anim {
-            0% { clip-path: inset(0 0 95% 0); }
-            25% { clip-path: inset(0 0 60% 0); }
-            50% { clip-path: inset(0 0 30% 0); }
-            75% { clip-path: inset(0 0 5% 0); }
-            100% { clip-path: inset(0 0 70% 0); }
+            0% { clip-path: inset(0 0 95% 0); transform: skew(0deg); }
+            25% { clip-path: inset(0 0 60% 0); transform: skew(10deg); }
+            50% { clip-path: inset(0 0 30% 0); transform: skew(-10deg); }
+            75% { clip-path: inset(0 0 5% 0); transform: skew(5deg); }
+            100% { clip-path: inset(0 0 70% 0); transform: skew(-5deg); }
         }
 
         .button-container {
@@ -80,151 +112,249 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            z-index: 2;
+            z-index: 10;
         }
 
         #megaButton {
             padding: 30px 60px;
-            font-size: 2em;
+            font-size: 2.5em;
+            font-weight: bold;
             background: #ffd700;
-            border: 5px solid #000;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 10px 10px 0 rgba(0,0,0,0.3);
-            font-family: 'Comic Sans MS', cursive;
-            transform: rotate(-3deg);
+            color: red;
+            border: 10px solid #00ff00;
+            border-radius: 0; /* Острые углы для агрессивности */
+            cursor: crosshair;
+            transition: all 0.1s ease;
+            box-shadow: 15px 15px 0px #ff00ff, -15px -15px 0px #00ffff;
+            font-family: 'Impact', 'Comic Sans MS', cursive;
+            transform: rotate(-5deg) scale(1.2);
             position: relative;
-            overflow: hidden;
+            text-transform: uppercase;
+            animation: pulseButton 0.5s infinite alternate, rgbBorder 1s infinite;
         }
 
-        #megaButton:hover {
-            background: #ff0000;
-            transform: rotate(3deg) scale(1.1);
-            box-shadow: 15px 15px 0 rgba(0,0,0,0.3);
+        @keyframes pulseButton {
+            from { transform: rotate(-5deg) scale(1.1); }
+            to { transform: rotate(5deg) scale(1.3); }
+        }
+
+        @keyframes rgbBorder {
+            0% { border-color: #00ff00; background: #ff0000; color: #ffff00; }
+            50% { border-color: #ff00ff; background: #0000ff; color: #00ff00; }
+            100% { border-color: #00ff00; background: #ff0000; color: #ffff00; }
         }
 
         #megaButton:active {
-            transform: scale(0.9);
-            box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+            transform: scale(0.7) rotate(20deg);
+            box-shadow: 0 0 50px #fff;
         }
 
-        #megaButton::before {
-            content: '★';
+        /* MLG ХИТМАРКЕР */
+        .hitmarker {
             position: absolute;
-            top: -20px;
-            left: -20px;
-            font-size: 1.5em;
-            animation: spin 2s linear infinite;
+            width: 60px;
+            height: 60px;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            animation: hitmarkerAnim 0.2s ease-out forwards;
         }
+
+        @keyframes hitmarkerAnim {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+        }
+
+        /* MLG ЭЛЕМЕНТЫ: Снуп Дог, Иллюминаты, Очки */
+        .mlg-item {
+            position: absolute;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .snoop {
+            bottom: -20px;
+            left: 10px;
+            width: 250px;
+            animation: bounce 0.4s infinite alternate;
+        }
+
+        .illuminati {
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            animation: spin 3s linear infinite;
+        }
+
+        .deal-with-it {
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            animation: dropGlasses 4s infinite;
+            z-index: 15;
+        }
+
+        @keyframes dropGlasses {
+            0% { top: -100px; }
+            50% { top: 30%; }
+            100% { top: -100px; }
+        }
+
+        /* БЕГУЩАЯ СТРОКА (КЛАССИКА!) */
+        .marquee-container {
+            width: 100%;
+            background: #000;
+            color: #00ff00;
+            font-size: 2em;
+            font-family: 'Impact', sans-serif;
+            border-top: 5px solid #ff00ff;
+            border-bottom: 5px solid #00ffff;
+            position: absolute;
+            z-index: 20;
+            box-shadow: 0 0 20px #00ff00;
+        }
+
+        .marquee-top { top: 0; }
+        .marquee-bottom { bottom: 0; }
 
         @keyframes bounce {
             from { transform: translateY(0); }
-            to { transform: translateY(-10px); }
+            to { transform: translateY(-20px); }
         }
 
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* MLG элементы */
-        .mlg-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .mlg-item {
-            position: absolute;
-            animation: float 5s infinite linear;
-        }
-
-        .mlg-item img {
-            width: 100px;
-            height: auto;
+            from { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.5); }
+            to { transform: rotate(360deg) scale(1); }
         }
 
         @keyframes float {
-            0% { transform: translateY(-10%) rotate(0deg); }
-            50% { transform: translateY(10%) rotate(180deg); }
-            100% { transform: translateY(-10%) rotate(360deg); }
+            0% { transform: translateY(-10%) rotate(0deg) scale(1); }
+            50% { transform: translateY(10%) rotate(180deg) scale(1.5); }
+            100% { transform: translateY(-10%) rotate(360deg) scale(1); }
+        }
+
+        .doritos, .dew {
+            animation: float 2s infinite linear;
+            width: 120px;
         }
 
         /* Мобильная версия */
         @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8em;
-            }
-
-            #megaButton {
-                padding: 20px 40px;
-                font-size: 1.5em;
-            }
-
-            .mlg-item img {
-                width: 50px;
-            }
+            h1 { font-size: 1.8em; }
+            #megaButton { padding: 20px 30px; font-size: 1.5em; }
+            .snoop { width: 120px; }
+            .illuminati { width: 80px; }
+            .marquee-container { font-size: 1.2em; }
+            .doritos, .dew { width: 60px; }
         }
     </style>
 </head>
 <body>
+    <!-- БЕГУЩИЕ СТРОКИ -->
+    <div class="marquee-container marquee-top">
+        <marquee scrollamount="25">🔥 xX_SAMPLE_TEXT_Xx 🔥 420 BLAZE IT 🔥 MOM GET THE CAMERA!!! 🔥 OH BABY A TRIPLE! 🔥 ILLUMINATI CONFIRMED 🔥</marquee>
+    </div>
+
+    <!-- МЕМНЫЕ ИЗОБРАЖЕНИЯ -->
+    <div class="mlg-item snoop">
+        <!-- Танцующий Снуп -->
+        <img src="https://i.imgur.com/vH0VqJd.gif" alt="Snoop Dogg" width="100%">
+    </div>
+    
+    <div class="mlg-item illuminati">
+        <!-- Иллюминат -->
+        <img src="https://i.imgur.com/kGqHw3J.png" alt="Illuminati" width="100%">
+    </div>
+
+    <div class="mlg-item deal-with-it">
+        <!-- Очки Deal With It -->
+        <img src="https://i.imgur.com/5uL9Q0j.png" alt="Deal With It" width="100%">
+    </div>
+
     <div class="mlg-overlay">
         <!-- Летающие Doritos -->
-        <div class="mlg-item" style="top: 10%; left: 5%; animation-duration: 7s;">
-            <img src="https://imgur.com/dCkghFC.png" alt="Doritos">
+        <div class="mlg-item doritos" style="top: 20%; left: 5%; animation-duration: 1.5s;">
+            <img src="https://imgur.com/dCkghFC.png" alt="Doritos" width="100%">
         </div>
-        <div class="mlg-item" style="top: 30%; left: 80%; animation-duration: 6s;">
-            <img src="https://imgur.com/pll28wH.png" alt="Doritos">
+        <div class="mlg-item doritos" style="top: 30%; left: 80%; animation-duration: 2.1s;">
+            <img src="https://imgur.com/pll28wH.png" alt="Doritos" width="100%">
         </div>
         <!-- Летающие Mountain Dew -->
-        <div class="mlg-item" style="top: 50%; left: 20%; animation-duration: 8s;">
-            <img src="https://imgur.com/rHJ0CHE.png" alt="Mountain Dew">
+        <div class="mlg-item dew" style="top: 50%; left: 20%; animation-duration: 1.8s;">
+            <img src="https://imgur.com/rHJ0CHE.png" alt="Mountain Dew" width="100%">
         </div>
-        <div class="mlg-item" style="top: 70%; left: 70%; animation-duration: 9s;">
-            <img src="https://imgur.com/sexNpea.png" alt="Mountain Dew">
+        <div class="mlg-item dew" style="top: 70%; left: 70%; animation-duration: 1.2s;">
+            <img src="https://imgur.com/sexNpea.png" alt="Mountain Dew" width="100%">
         </div>
     </div>
 
-    <h1>НАЖИМАЙ!<br><span class="glitch" data-text="ЭТО НЕ ЛОВУШКА!!11">ЭТО НЕ ЛОВУШКА!!</span></h1>
+    <br><br><br>
+    <h1><span class="glitch" data-text="xX_НАЖИМАЙ!_Xx">xX_НАЖИМАЙ!_Xx</span><br>
+        <span class="glitch" data-text="ЭТО НЕ ЛОВУШКА!!11">ЭТО НЕ ЛОВУШКА!!11</span>
+    </h1>
     
     <div class="button-container">
-        <button id="megaButton" onclick="playSound()">
-            НАЖМИ МЕНЯ!
+        <!-- Добавлено(event) для перехвата координат мыши для хитмаркера -->
+        <button id="megaButton" onclick="playSound(event)">
+            [ НАЖМИ МЕНЯ! ]
         </button>
     </div>
 
     <audio id="sound" src="ston.mp3"></audio>
 
+    <!-- БЕГУЩАЯ СТРОКА СНИЗУ -->
+    <div class="marquee-container marquee-bottom">
+        <marquee scrollamount="30" direction="right">⚠️ WARNING: DARUDE SANDSTORM INCOMING ⚠️ WOMBO COMBO ⚠️ DAMN SON WHERE'D YOU FIND THIS ⚠️</marquee>
+    </div>
+
     <script>
-        function playSound() {
+        function playSound(e) {
             const sound = document.getElementById('sound');
             sound.currentTime = 0;
             sound.play();
             
-            // Добавляем временный стиль при нажатии
+            // ЭФФЕКТ ТРЯСКИ ЭКРАНА (SCREEN SHAKE)
+            document.body.classList.add('mlg-shake');
+            setTimeout(() => {
+                document.body.classList.remove('mlg-shake');
+            }, 300);
+
+            // СПАВН ХИТМАРКЕРА
+            if (e) {
+                const hit = document.createElement('img');
+                // URL классического хитмаркера
+                hit.src = 'https://i.imgur.com/O61Ovu1.png'; 
+                hit.className = 'hitmarker';
+                
+                // Проверяем, был ли это тач (мобилка) или клик (ПК)
+                const x = e.pageX || (e.touches && e.touches[0].pageX);
+                const y = e.pageY || (e.touches && e.touches[0].pageY);
+                
+                hit.style.left = x + 'px';
+                hit.style.top = y + 'px';
+                document.body.appendChild(hit);
+                
+                // Удаляем хитмаркер после анимации
+                setTimeout(() => hit.remove(), 200);
+            }
+
+            // Добавляем временный хаотичный стиль при нажатии
             const button = document.getElementById('megaButton');
-            button.style.transform = 'scale(0.9) rotate(5deg)';
+            button.style.transform = 'scale(0.5) rotate(45deg)';
+            button.style.filter = 'invert(1)';
             setTimeout(() => {
                 button.style.transform = '';
+                button.style.filter = '';
             }, 200);
         }
 
-        // Добавляем эффект при касании на мобильных
+        // Эффект при касании на мобильных + вызов хитмаркера
         document.addEventListener('touchstart', function(e) {
             if(e.target === document.getElementById('megaButton')) {
-                e.target.style.transform = 'scale(0.95) rotate(3deg)';
-            }
-        });
-
-        document.addEventListener('touchend', function(e) {
-            if(e.target === document.getElementById('megaButton')) {
-                e.target.style.transform = '';
+                playSound(e); // Вызываем звук и хитмаркер сразу по тачу для лучшего отклика
             }
         });
 
